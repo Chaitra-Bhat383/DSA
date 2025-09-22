@@ -16,18 +16,31 @@ class Solution {
         // }
         // return count * mx;
 
-        Map<Integer, Integer> mp = new HashMap<>();
-        int ans = 0, maxFreq = 0;
+        // Map<Integer, Integer> mp = new HashMap<>();
+        // int ans = 0, maxFreq = 0;
+        // for (int num : nums) {
+        //     mp.put(num, mp.getOrDefault(num, 0) + 1);
+        //     int freq = mp.get(num);
+        //     if(freq > maxFreq) {
+        //         maxFreq = freq;
+        //         ans = freq;
+        //     } else if (freq == maxFreq) {
+        //         ans = ans + freq;
+        //     }
+        // }
+        // return ans;
+
+        byte[] mp = new byte[101];
+        byte maxFreq = 0, ans = 0;
         for (int num : nums) {
-            mp.put(num, mp.getOrDefault(num, 0) + 1);
-            int freq = mp.get(num);
-            if(freq > maxFreq) {
+            byte freq = ++mp[num];
+            if (freq > maxFreq) {
                 maxFreq = freq;
                 ans = freq;
             } else if (freq == maxFreq) {
-                ans = ans + freq;
+                ans = (byte)(ans + freq);
             }
-        }
+        } 
         return ans;
     }
 }
