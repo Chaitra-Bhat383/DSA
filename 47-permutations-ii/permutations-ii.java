@@ -15,12 +15,13 @@ class Solution {
         }
         for(int i = 0; i < nums.length; ++i) {
             if(!freq[i]) {
+                if(i > 0 && nums[i] == nums[i-1] && !freq[i-1]) continue;
                 ds.add(nums[i]);
                 freq[i] = true;
                 recurPermute(nums, ds, ans, freq);
                 ds.remove(ds.size() - 1);
                 freq[i] = false;
-                while(i+1<nums.length && nums[i]==nums[i+1])i++;
+                //while(i+1<nums.length && nums[i]==nums[i+1])i++;
             }
         }
     }
