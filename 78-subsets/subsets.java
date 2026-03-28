@@ -7,7 +7,7 @@ class Solution {
     }
 
     public void func(int ind, int[] arr, List<List<Integer>> ans, List<Integer> ds) {
-        if(ind >= arr.length) {
+        if(ind == arr.length) {
             ans.add(new ArrayList<>(ds));
             return;
         }
