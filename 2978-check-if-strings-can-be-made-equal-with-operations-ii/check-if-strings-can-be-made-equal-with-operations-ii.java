@@ -8,19 +8,10 @@ class Solution {
         for(int i = 0; i < s1.length(); ++i) {
             if(i % 2 == 0) {
                 even1[j] = s1.charAt(i);
-                j++;
-            } else {
-                odd1[k] = s1.charAt(i);
-                k++;
-            }
-        }
-        j = 0;
-        k = 0;
-        for(int i = 0; i < s2.length(); ++i) {
-            if(i % 2 == 0) {
                 even2[j] = s2.charAt(i);
                 j++;
             } else {
+                odd1[k] = s1.charAt(i);
                 odd2[k] = s2.charAt(i);
                 k++;
             }
