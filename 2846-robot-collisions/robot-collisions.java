@@ -8,6 +8,9 @@ class Solution {
             indices[i] = i;
         }
         Arrays.sort(indices, Comparator.comparingInt(a -> positions[a]));
+        System.out.println(indices[0]);
+        System.out.println(indices[0]);
+        System.out.println(indices[0]);
 
         for(int curr : indices) {
             if (directions.charAt(curr) == 'R') {
