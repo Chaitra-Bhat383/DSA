@@ -37,10 +37,8 @@ class Solution {
         if (dp[i] != null)
             return dp[i];
         int bobOption1 = Math.min(Math.min(bestScore(nums, i + 2, n),bestScore(nums, i + 3, n)),bestScore(nums, i + 4, n));
-        int bobOption2 = Integer.MAX_VALUE;
-        bobOption2 = Math.min(Math.min(bestScore(nums, i + 3, n),bestScore(nums, i + 4, n)),bestScore(nums, i + 5, n));
-        int bobOption3 = Integer.MAX_VALUE;
-        bobOption3 = Math.min(Math.min(bestScore(nums, i + 4, n),bestScore(nums, i + 5, n)),bestScore(nums, i + 6, n));
+        int bobOption2 = Math.min(Math.min(bestScore(nums, i + 3, n),bestScore(nums, i + 4, n)),bestScore(nums, i + 5, n));
+        int bobOption3 = Math.min(Math.min(bestScore(nums, i + 4, n),bestScore(nums, i + 5, n)),bestScore(nums, i + 6, n));
 
         int option1 = nums[i] + bobOption1;
         int option2 = Integer.MIN_VALUE;
