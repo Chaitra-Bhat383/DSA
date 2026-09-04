@@ -1,24 +1,31 @@
 class Solution {
+    public int maxVal(int[] piles) {
+        int maxi = Integer.MIN_VALUE;
+        for(int pile : piles) {
+            if(pile > maxi) maxi = pile;
+        }
+        return maxi;
+    }
+
+    public boolean ifPossible(int[] piles, int num, int h) {
+        int ans = 0;
+        for(int i = 0; i < piles.length; ++i) {
+            ans += Math.ceil((double) piles[i] / (double) num);
+        }
+        return ans <= h;
+    }
+
     public int minEatingSpeed(int[] piles, int h) {
-        int min = 1;
-        int max = Arrays.stream(piles).max().getAsInt();
-        int ans = max;
-
-        while(min <= max) {
-            int mid = min + (max - min) / 2;
-            long hours = 0;
-            for(int pile : piles) {
-                hours += (pile + mid - 1) / mid;
-            }
-
-            if(hours <= h) {
-                ans = mid;
-                max = mid - 1;
+        int low = 1;
+        int high = maxVal(piles);
+        while(low <= high) {
+            int mid = (low + high) / 2;
+            if(ifPossible(piles, mid, h)) {
+                high = mid - 1;
             } else {
-                min = mid + 1;
+                low = mid + 1;
             }
         }
-
-        return ans;
+        return low;
     }
 }
